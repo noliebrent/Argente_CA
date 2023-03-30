@@ -15,9 +15,10 @@
       state: directory
 
   - name: Create a new file with permissions
-    become: true
-    become_method: sudo
-    command: sh -c "echo '01' > /etc/ssl/CA/serial"
+    copy:
+      content: "01"
+      dest: /etc/ssl/CA/serial
+      mode: "0644"
 
   - name: Creating an empty file
     file:
