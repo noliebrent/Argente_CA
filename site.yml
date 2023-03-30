@@ -28,9 +28,7 @@
   - name: Editing line in /etc/ssl/openssl.cnf
     lineinfile:
       path: /etc/ssl/openssl.cnf
-      regexp: |
-      
-[ CA_default ]
+      regexp: ' [ CA_default ]
 
 dir             = ./demoCA              # Where everything is kept
 certs           = $dir/certs            # Where the issued certs are kept
@@ -73,9 +71,8 @@ preserve        = no                    # keep passed DN ordering
 policy          = policy_match
 
 # For the CA policy
-|
-line: |
-[ CA_default ]
+'
+      line: ' [ CA_default ]
 
 dir             = /etc/ssl              # Where everything is kept
 certs           = $dir/certs            # Where the issued certs are kept
@@ -118,5 +115,5 @@ preserve        = no                    # keep passed DN ordering
 policy          = policy_match
 
 # For the CA policy
-|
+'
 
