@@ -16,7 +16,8 @@
 
   - name: Create a new file with permissions
     become: true
-    command: sudo sh -c "echo '01' > /etc/ssl/CA/serial"
+    become_method: sudo
+    command: sh -c "echo '01' > /etc/ssl/CA/serial"
 
   - name: Creating an empty file
     file:
