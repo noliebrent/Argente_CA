@@ -1,0 +1,35 @@
+---
+
+- hosts: all
+  become: true
+  tasks:
+  
+ ---
+
+- hosts: all
+  become: true
+  tasks:
+  
+  - name: Creating a folder for CA
+    file:
+      path: /etc/ssl/CA 
+      state: directory
+
+  - name: Creating a folder for newecerts
+    file:
+      path: /etc/ssl/newcerts
+      state: directory
+
+  - name: Create a new file with permissions
+    command: sudo sh -c "echo '01' > /etc/ssl/CA/serial"
+
+  - name: Creating an empty file
+    file:
+      path: /etc/ssl/CA/index.txt
+      state: touch
+
+  - name: Create private key with password protection
+    community.crypto.openssl_privatekey:
+      path: /etc/ssl/CA
+      passphrase: "{{ passphrase }}"
+
