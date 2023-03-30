@@ -4,12 +4,6 @@
   become: true
   tasks:
   
- ---
-
-- hosts: all
-  become: true
-  tasks:
-  
   - name: Creating a folder for CA
     file:
       path: /etc/ssl/CA 
