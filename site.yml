@@ -14,21 +14,10 @@
       path: /etc/ssl/CA 
       state: directory
 
-  - name: Creating a folder for newecerts
+  - name: Creating a folder for certs
     file:
-      path: /etc/ssl/newcerts
+      path: /etc/ssl/certs
       state: directory
-
-  - name: Create a new file with permissions
-    copy:
-      content: "01"
-      dest: /etc/ssl/CA/serial
-      mode: "0644"
-
-  - name: Creating an empty file
-    file:
-      path: /etc/ssl/CA/index.txt
-      state: touch
 
   - name: Generate the CA key
     openssl_privatekey:
