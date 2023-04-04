@@ -3,15 +3,15 @@
 - hosts: all
   become: true
   tasks:
-  
+
   - name: Install OpenSSL
     apt:
       name: openssl
       state: present
-  
+
   - name: Creating a folder for CA
     file:
-      path: /etc/ssl/CA 
+      path: /etc/ssl/CA
       state: directory
 
   - name: Creating a folder for certs
@@ -30,7 +30,7 @@
       path: /etc/ssl/certs/ca.csr
       privatekey_path: /etc/ssl/private/ca.key
       common_name: "My CA"
-      country_name: "Philippines"
+      country_name: "PH"
       state_or_province_name: "NCR"
       locality_name: "QC"
       organization_name: "CPE"
