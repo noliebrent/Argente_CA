@@ -14,11 +14,6 @@
       path: /etc/ssl/CA
       state: directory
 
-  - name: Creating a folder for certs
-    file:
-      path: /etc/ssl/certs
-      state: directory
-
   - name: Generate the CA key
     openssl_privatekey:
       path: /etc/ssl/private/ca.key
@@ -48,4 +43,5 @@
   - name: Copy the CA certificate to clients
     copy:
       src: /etc/ssl/certs/ca-certificates.crt
-      dest: /etc/pki/ca-trust/source/anchors/
+      dest: /etc/ssl/CA
+
